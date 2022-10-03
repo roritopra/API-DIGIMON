@@ -1,19 +1,20 @@
 import { getDigimon } from "./services/digimons.js";
+import { digiData } from "./types/index.js";
 class AppContaniner extends HTMLElement {
     constructor(){
         super()
         this.attachShadow({ mode: "open" });
     }
 
-    connectedCallback() {
-        const digimons = getDigimon(); 
+    async connectedCallback() {
+        const digimons = await getDigimon(); 
         this.render(digimons);
     }
 
-    render(digimons: Array<string>) {
+    render(digimons: Array<digiData>) {
         if(!this.shadowRoot) return;
         
-        const compts =digimons.map ( ()=> "He")
+        const compts =digimons.map ((_, i)=> i)
         this.shadowRoot.innerHTML = `<section>
             ${compts.join("")}
         </section>`;
