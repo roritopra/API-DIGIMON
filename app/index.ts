@@ -14,9 +14,13 @@ class AppContaniner extends HTMLElement {
     render(digimons: Array<digiData>) {
         if(!this.shadowRoot) return;
         
-        const compts =digimons.map ((_, i)=> i)
+        const digimones =digimons.map (( image, level, name)=> `<article>
+            <h3>${name}:  </h3>
+            <h3>${level}</h3>
+            <img src="${image}">
+        </article>`)
         this.shadowRoot.innerHTML = `<section>
-            ${compts.join("")}
+            ${digimones.join("")}
         </section>`;
     }
 }
