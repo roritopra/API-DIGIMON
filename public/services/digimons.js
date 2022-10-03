@@ -11,5 +11,5 @@ export const getDigimon = () => __awaiter(void 0, void 0, void 0, function* () {
     const response = yield fetch("https://digimon-api.vercel.app/api/digimon");
     const data = yield response.json();
     console.log(data);
-    return ["2", "asmdigf"];
+    return data;
 });
