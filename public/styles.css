@@ -1,0 +1,8 @@
+article{
+    width: 350px;
+    padding: 10px;
+    border: 1px black solid;
+    border-radius: 10px;
+    margin: 10px;
+    display: inline-block;
+}

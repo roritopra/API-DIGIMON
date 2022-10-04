@@ -16,18 +16,23 @@ class AppContaniner extends HTMLElement {
     connectedCallback() {
         return __awaiter(this, void 0, void 0, function* () {
             const digimons = yield getDigimon();
+            console.log(digimons);
             this.render(digimons);
         });
     }
     render(digimons) {
         if (!this.shadowRoot)
             return;
-        const digimones = digimons.map((image, level, name) => `<article>
-            <h3>${name}:  </h3>
-            <h3>${level}</h3>
-            <img src="${image}">
+        const digimones = digimons.map(({ img, level, name }) => `<article>
+            <h2>${name}:  </h2>
+            <p>${level}</p>
+            <img src="${img}">
         </article>`);
-        this.shadowRoot.innerHTML = `<section>
+        console.log(digimones);
+        this.shadowRoot.innerHTML = `
+        <link rel="stylesheet" href="./styles.css"> 
+        <section>
+        
             ${digimones.join("")}
         </section>`;
     }
